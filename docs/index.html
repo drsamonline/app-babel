@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Babel — ten signs, and a hand for a word</title>
+<meta name="description" content="Recognise a hand from a ten-sign synthetic vocabulary, or type a word to see its handshape. Not a sign language.">
+<meta name="theme-color" content="#20242e">
+<style>
+  :root{--bg:#f6f5f2;--panel:#fff;--ink:#20242e;--muted:#5f6672;--line:#d9d6cf;--accent:#3b4a6b}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif}
+  main{max-width:760px;margin:0 auto;padding:50px 20px 64px}
+  h1{font-size:33px;line-height:1.15;letter-spacing:-.02em;margin:0 0 10px}
+  .lede{font-size:18px;color:var(--muted);margin:0 0 26px}
+  .cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:9px}
+  .status{margin:26px 0;padding:14px 16px;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:9px;background:var(--panel);font-size:14px}
+  .status b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:4px}
+  h2{font-size:17px;margin:30px 0 8px}
+  ul{padding-left:20px}li{margin:4px 0}
+  code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;background:#eeede9;padding:1px 5px;border-radius:4px}
+  table{border-collapse:collapse;width:100%;font-size:14px;margin-top:8px}
+  th,td{text-align:left;border-bottom:1px solid var(--line);padding:7px 8px;vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+  .gap{margin:22px 0 0;padding:12px 14px;border:1px solid #e3c9c9;border-left:4px solid #8f2a2a;border-radius:9px;background:#fdf3f3;color:#7d1f1f;font-size:13.5px}
+  .signs{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;margin:10px 0 0;color:#3b4a6b}
+  footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+  a{color:var(--accent)}
+</style></head>
+<body><main>
+  <h1>Babel</h1>
+  <p class="lede">Ten signs, and a hand for a word. A hand outside the vocabulary is <strong>refused rather than guessed</strong>.</p>
+  <a class="cta" href="play/index.html">Open Babel</a>
+
+  <p class="gap"><strong>These ten “signs” are synthetic handshapes</strong>, drawn geometrically — not a recording of a real signer and not a claim about any sign language. There is no camera and no trained model in this app: you pick a reference hand or a noisy one, and it recognises it or refuses to.</p>
+
+  <div class="status">
+    <b>Status</b>
+    Built and working: ten reference handshapes of 21 points; a scale-normalised distance; recognition that returns the nearest word <em>or</em> “not recognised”; and an avatar drawn from a word's stored reference.
+    <br><b>Release</b>: Windows EXE, Android APK and Linux binary, built from this source in CI — <a href="https://github.com/drsamonline/app-babel/releases/tag/app-latest">app-latest</a>.
+    <br><b>Not built</b>: a camera, and a trained sign-language model. Both are real work, and a demo that pretended to have them would be the worst kind of fake.
+  </div>
+
+  <p class="signs">hello · no · yes · water · eat · stop · more · help · sorry · thank you</p>
+
+  <h2>What it does</h2>
+  <ul>
+    <li>Compares a hand of 21 points against ten reference handshapes, scale-normalised so a big hand and a small hand compare.</li>
+    <li>Returns the nearest word — or <strong>“not recognised”</strong> when nothing is close enough.</li>
+    <li>Draws an avatar from a word's stored handshape, and refuses a word outside the ten.</li>
+  </ul>
+
+  <h2>What it will not do</h2>
+  <ul>
+    <li><strong>Guess.</strong> Beyond the threshold it says “not recognised”, because a wrong word is worse than no word.</li>
+    <li><strong>Invent a hand</strong> for a word it does not have.</li>
+    <li><strong>Claim to be a sign language.</strong> The signs are synthetic, and the page says so above the fold.</li>
+    <li><strong>Use a camera.</strong> There is none: <code>getUserMedia</code> appears nowhere.</li>
+    <li><strong>Use the internet.</strong> No <code>fetch</code>, no endpoint; CSP <code>connect-src 'none'</code>.</li>
+  </ul>
+
+  <h2>When things go wrong</h2>
+  <table>
+    <tr><th>Case</th><th>What happens</th></tr>
+    <tr><td>Bad input</td><td>A hand with the wrong number of points, or no hand, is refused; an empty word is refused.</td></tr>
+    <tr><td>Outside the vocabulary</td><td>“not recognised”, with the nearest reference and its distance named — and no word offered.</td></tr>
+    <tr><td>No network</td><td>Nothing changes; everything is local.</td></tr>
+    <tr><td>Storage full or unavailable</td><td><strong>NOT SAVED</strong>, and the history on screen is unchanged.</td></tr>
+    <tr><td>Corrupt saved state</td><td>Reported and offered for export; never replaced with an empty one.</td></tr>
+  </table>
+
+  <h2>How to run it</h2>
+  <ul>
+    <li><strong>Here</strong>: <a href="play/index.html">play/index.html</a>, or install it from your browser's menu.</li>
+    <li><strong>Offline file</strong>: open <code>docs/play/index.html</code> straight from disk.</li>
+    <li><strong>Tests</strong>: <code>node tests/self-tests.js</code>.</li>
+  </ul>
+
+  <footer>PolyForm Noncommercial 1.0.0 · (c) 2026 Dr Sohil Momin · <a href="https://github.com/drsamonline/app-babel">source</a></footer>
+</main></body></html>

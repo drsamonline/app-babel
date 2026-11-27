@@ -1,0 +1,34 @@
+NOTICE
+======
+
+Babel — https://github.com/drsamonline/app-babel
+Copyright 2026 Dr Sohil Momin. Licensed under PolyForm Noncommercial 1.0.0 (see LICENSE).
+
+Third-party components
+----------------------
+
+None. Babel has no third-party dependency and no CDN.
+
+Vendored from this project's own kits (same licence, same author), copied verbatim on 27/11/2026:
+
+- web-kit 0.1.0 — docs/play/web-kit.js — the offline shell, storage helpers and PWA registration
+- export-kit 1.0.0 — docs/play/export-kit.js — Blob download, used for the history export
+
+Neither kit is modified. Neither makes a network request.
+
+The ten signs are synthetic, and are not a sign language
+--------------------------------------------------------
+
+The ten "reference signs" in this app are SYNTHETIC 21-point handshapes generated from a finger-extension
+pattern and a wrist angle. They are not a recording of a real signer, they are not taken from any sign
+language, and they are not a claim about how any Deaf community signs anything.
+
+There is no trained sign-language recognition model in this app, and no camera. What ships is the mechanism:
+ten references, a scale-normalised distance, a threshold, and an avatar drawn from a stored handshape.
+
+Why "not recognised" matters
+----------------------------
+
+A hand further than the threshold from every reference returns "not recognised" and offers NO word. A small
+vocabulary that guesses is worse than a small vocabulary that admits its limits: a wrong caption on a hand is
+a wrong sentence about a person.
