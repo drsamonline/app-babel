@@ -9,19 +9,21 @@
   :root{--card:#f7f3e6;--ink:#2f3a2c;--rule:#8d9a86;--moss:#4b6b4a;--rust:#9a5a34;--serif:Georgia,"Iowan Old Style",serif;--mono:ui-monospace,Menlo,Consolas,monospace}
   *{box-sizing:border-box}
   body{margin:0;background:#e9e4d3;color:var(--ink);font-family:var(--serif)}
-  .plate{max-width:780px;margin:0 auto;background:var(--card);padding:44px 34px 56px;position:relative}
+  .plate{max-width:1600px;margin:0 auto;background:var(--card);padding:44px 34px 56px;position:relative}
   .plate::before,.plate::after{content:"";position:absolute;left:14px;right:14px;height:1px;background:var(--rule)}
   .plate::before{top:18px}.plate::after{bottom:18px}
   .no{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--moss)}
   h1{font-size:clamp(32px,6.4vw,50px);line-height:1.04;margin:8px 0 6px;letter-spacing:-.015em;font-weight:400}
   h1 em{font-style:italic;color:var(--rust)}
   .sub{font-size:16px;color:#5c6657;font-style:italic;margin:0 0 26px;max-width:48ch}
-  .specimens{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:10px;margin:0 0 24px}
+  .specimens{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:clamp(8px,1vw,14px);margin:0 0 clamp(18px,2.4vw,30px)}
   .spec{border:1px solid var(--rule);background:#fffdf4;padding:10px 8px;text-align:center}
   .spec svg{width:100%;height:58px;display:block}
   .spec span{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:#5c6657;display:block;margin-top:4px}
-  .cols{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-  @media (max-width:620px){.cols{grid-template-columns:1fr}}
+  .cols{display:grid;grid-template-columns:1fr;gap:clamp(18px,2.4vw,40px)}
+  @media (min-width:760px){.cols{grid-template-columns:1fr 1fr}}
+  @media (min-width:1280px){.cols{grid-template-columns:repeat(3,1fr)}}
+  
   h2{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);margin:0 0 6px}
   p{font-size:15px;line-height:1.68;margin:0 0 12px}
   .go{display:inline-block;margin-top:8px;border:1px solid var(--moss);color:var(--moss);padding:10px 20px;
