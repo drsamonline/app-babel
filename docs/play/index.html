@@ -40,6 +40,26 @@
   svg.hand{width:100%;max-width:300px;height:auto;border:1px solid var(--line);border-radius:10px;background:#fff}
   footer{max-width:880px;margin:0 auto;padding:18px 20px 40px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}
   [hidden]{display:none !important}
+
+  body{background:#e9e4d3;color:#2f3a2c}
+  header.top{background:#f7f3e6;border-bottom:1px solid #8d9a86}
+  header.top h1{font-family:Georgia,serif;font-weight:400}
+  header.top a{color:#4b6b4a}
+  main{background:#f7f3e6;max-width:880px}
+  .card{background:#fffdf4;border:1px solid #8d9a86;border-radius:1px}
+  .card h2{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:10.5px;letter-spacing:.18em;
+           text-transform:uppercase;color:#9a5a34}
+  .card p.claim{color:#5c6657;font-style:italic}
+  button{border-radius:1px;border-color:#8d9a86;background:#fffdf4;color:#2f3a2c}
+  button.primary{background:#4b6b4a;border-color:#4b6b4a;color:#f7f3e6}
+  input[type=text]{background:#fffdf4;border-color:#8d9a86;border-radius:1px}
+  .caption{font-family:Georgia,serif;color:#2f3a2c}
+  .gap{background:#f3ece0;border-color:#d8c3b4;border-left-color:#9a5a34;color:#7a4a2e}
+  svg.hand{border:1px solid #8d9a86;background:#fffdf4;border-radius:1px}
+  .status.ok{border-color:#b6c7b0;background:#f3f7ef;color:#33512f}
+  .status.bad{border-color:#d8bcae;background:#fbeee7;color:#8a4222}
+  .sponsor{margin:22px 0 0;border:1px solid #8d9a86;border-left:3px solid #9a5a34;background:#fffdf4;padding:11px 13px;font-size:12.5px;color:#5c6657}
+  .sponsor a{color:#9a5a34;text-decoration:none;border-bottom:1px solid currentColor}
 </style>
 </head>
 <body>
@@ -88,6 +108,10 @@
     <span class="hint" id="ioNote"></span>
   </div>
 
+  <div class="sponsor">
+    <strong>Sponsor this app.</strong> It is free, offline and has no account. If it earned its keep:
+    <a href="https://github.com/sponsors/drsamonline">github.com/sponsors/drsamonline</a>
+  </div>
   <footer>
     Babel recognises a hand from ten synthetic handshapes and draws the stored handshape for a word. A hand outside the vocabulary returns "not recognised" rather than
     a guess, and everything runs on this device.

@@ -8,6 +8,7 @@ Ten signs, and a hand for a word. A hand outside the vocabulary is **refused rat
 - **Plan row:** #37 of 37 in `drsamonline/forge` → `QUEUE/PLAN.json`
 - **Specs absorbed:** `app-babel` (lead)
 - **Licence:** PolyForm Noncommercial 1.0.0
+- **Sponsor:** [github.com/sponsors/drsamonline](https://github.com/sponsors/drsamonline) — free, offline, no account
 
 ## Status
 
